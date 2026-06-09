@@ -92,7 +92,7 @@ The `web-clip` template doubles as the Obsidian Web Clipper template.
 - `CONTEXT.md` and the section list are **grill-owned**. `wiki-distill` only
   *suggests* new terms or sections (into `open-questions.md`); a human re-runs
   this skill to fold them in. The domain model never drifts unsupervised.
-- **No ADRs.** Record notable setup decisions in `meta/maintenance-log.md`.
+- Record notable setup decisions in `meta/maintenance-log.md`.
 
 ## Idempotency
 
@@ -102,6 +102,5 @@ The `web-clip` template doubles as the Obsidian Web Clipper template.
 ## Anti-patterns
 
 - Don't hardcode universal source categories — ask or infer them.
-- Don't introduce sync, permissions, review workflows, or integrations.
 - Don't make the user hand-edit YAML — you write the templates for them.
 - Don't map every domain term to a folder — design the IA deliberately.

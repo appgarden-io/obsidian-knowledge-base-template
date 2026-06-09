@@ -29,7 +29,6 @@ meta/
 - **wiki-ingest** — fetch material from the user's tools (email, meetings, Drive, Slack) into `sources/` as `#status/pending`. The active capture path.
 - **wiki-distill** — turn pending sources into wiki pages. Owns content. Run when the user says "distill".
 - **wiki-lint** — health-check the wiki: fix safe bookkeeping (broken links, missing index entries), route judgment calls to the maintenance files, report. Run when the user says "lint the wiki".
-- **grill-with-docs**, **obsidian-markdown** — helpers (interview method; Obsidian syntax reference).
 
 If the wiki has not been set up yet (`CONTEXT.md` or source templates missing), use `.claude/skills/wiki-onboard/SKILL.md` first.
 
@@ -100,6 +99,3 @@ tags:
 
 Append meaningful passes to `meta/maintenance-log.md` (`YYYY-MM-DD · who · what`).
 
-## Scope limits
-
-Do not add sync, permissions, review workflows, scheduling, or ingestion integrations unless the user asks. Those are separate layers from this template.
