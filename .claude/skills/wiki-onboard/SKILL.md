@@ -21,11 +21,18 @@ source schema. Day-to-day content is `wiki-distill`'s job.
 
 ## Method: grill, then write
 
-Run this as a relentless, **one-question-at-a-time** interview in the style of
-the bundled `grill-with-docs` skill ([../grill-with-docs/SKILL.md](../grill-with-docs/SKILL.md)).
-For each question, give your recommended answer, and resolve one branch before
-moving to the next. Write artifacts *inline* as decisions crystallise — don't
-batch them to the end.
+Run this as a relentless interview in the style of the bundled `grill-with-docs`
+skill ([../grill-with-docs/SKILL.md](../grill-with-docs/SKILL.md)). Write
+artifacts *inline* as decisions crystallise — don't batch them to the end.
+
+**Ask exactly one question per message.** Never bundle or stack questions, and
+never ask the next one until the user has answered the current one. Resolve one
+branch of the decision tree before opening the next.
+
+**Keep each question terse.** One or two sentences of question, plus a one-line
+recommended answer. No preamble, no recap of what you already know, no menu of
+considerations — just the question and your pick. If a fact is discoverable from
+files already present, look instead of asking.
 
 ## Flow
 
