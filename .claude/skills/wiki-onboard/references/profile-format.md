@@ -17,6 +17,7 @@ submitted_by: Gavin Reubenson   # who answered
 captured_at: 2026-08-03         # when the interview ran
 source_date: 2026-08-03
 company: Paycorp
+website: paycorp.co.za        # optional — present when the interview asked for it
 role: Group CIO
 status: complete                # complete | partial — how far the interview got
 tags:
