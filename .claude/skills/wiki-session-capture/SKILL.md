@@ -57,7 +57,9 @@ file, or a deliberate drop you can name.
 
 So nothing settled is dropped:
 
-- a fact implying a **new section** → `## Questions` in `open-questions.md`
+- a fact implying a **new section** → "Section candidates" in
+  `open-questions.md`, with which of the three justifications in `CLAUDE.md` it
+  meets. Short of all three, it is a page in an existing section.
 - conflicts with an existing wiki claim → `wiki/maintenance/contradictions.md`
 - a concept worth its own page → "Suggested pages" in `open-questions.md`
 - a domain term absent from `CONTEXT.md` → "Suggested terms" in `open-questions.md`

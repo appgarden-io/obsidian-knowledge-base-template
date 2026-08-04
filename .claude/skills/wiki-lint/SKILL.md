@@ -47,9 +47,10 @@ Read the pages and weigh them. These route — they don't auto-fix:
 10. **Missing pages** — a concept referenced repeatedly with no page of its own → "Suggested pages".
 11. **Missing terms** — a domain term in use but absent from `CONTEXT.md` → "Suggested terms".
 12. **Thin pages** — stubs with little beyond a title → "Suggested pages", for enrichment.
+13. **Thin sections** — a section (`meetings/` and `maintenance/` aside) holding fewer than three pages fails the **Material** justification in `CLAUDE.md`: name it under "Section candidates" in `open-questions.md`, with the section you'd merge it into. Structure isn't yours to change, so this is a flag, never a move.
 
-**Done when** all twelve have run against every page in `wiki/` and every note in
-`sources/` — a partial sweep reports a clean wiki that isn't one.
+**Done when** all thirteen have run against every page in `wiki/` and every note
+in `sources/` — a partial sweep reports a clean wiki that isn't one.
 
 ## 3. Act — fix the safe, flag the rest
 
@@ -67,7 +68,8 @@ bookkeeping you maintain.
   - a concept needing its own page, and thin pages → `## Suggested pages`;
   - a term missing from `CONTEXT.md` → `## Suggested terms`;
   - a source with blank or `unknown` `submitted_by` → `## Needs attribution`;
-  - anything else needing a decision — a top-level directory absent from the root index, a suggested section, a source carrying both status tags, a provenance gap, a generic alias → `## Questions` in `open-questions.md`.
+  - a section to add or merge → `## Section candidates` in `open-questions.md`, naming the justifications from `CLAUDE.md` it meets or misses;
+  - anything else needing a decision — a top-level directory absent from the root index, a source carrying both status tags, a provenance gap, a generic alias → `## Questions` in `open-questions.md`.
 - **Hard guardrail** — the root `wiki/index.md`, `CONTEXT.md`, the section directories, and every source stay exactly as you found them, and deletions are never yours to make. Each of those is a FLAG instead.
 
 ## 4. Log the pass

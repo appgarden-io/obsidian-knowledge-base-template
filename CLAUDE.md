@@ -47,6 +47,7 @@ Where a skill says *preserve provenance*, it means this section.
 - **wiki-distill** — turn pending sources into wiki pages. Owns content.
 - **wiki-session-capture** — capture what a Claude session settled straight into `wiki/`, bypassing `sources/`. Owns content.
 - **wiki-lint** — health-check the wiki: fix safe bookkeeping (broken links, missing index entries), route judgment calls to the maintenance files, report.
+- **wiki-help** — read what state the vault is in and tell the user what is worth doing next. Read-only. Runs at the end of every `wiki-onboard` pass, and whenever they ask for help.
 
 If the wiki has not been set up yet (`CONTEXT.md` or source templates missing), use `.claude/skills/wiki-onboard/SKILL.md` first.
 
@@ -103,6 +104,7 @@ Web articles arrive via the Obsidian Web Clipper into `sources/clippings/`, alre
 ## Wiki
 
 - Compile knowledge into **designed sections** (`wiki/<section>/`), not a generic bucket. Sections are a deliberate information architecture defined at onboarding — informed by `CONTEXT.md`, not a 1:1 list of every term.
+- **A section is justified three ways, or it isn't a folder.** (1) **Material** — it holds at least three real pages today, not three it might hold later. (2) **Routing** — a fact lands in it without a coin toss; if two sections could both take it, they are one section. (3) **Lookup** — someone opens it to answer a question they ask often, and calls it by that name. All three, or the thing is a page inside an existing section. Most vaults run 3–5 sections, one level deep, plus the `meetings/` and `maintenance/` the template ships. The full bar, and what to do with a candidate that misses it, is in `.claude/skills/wiki-onboard/SKILL.md`.
 - **Progressive disclosure**: `wiki/index.md` links only to first-level sections. Every directory under `wiki/` has its own `index.md`. When creating a section, create its `index.md` first and add it to the parent index.
 - **Entity-centric**: distilled facts fold into entity pages (e.g. `wiki/customers/acme-corp.md`), built from many sources over time.
 - **Index links are path-qualified** — every directory has an `index.md`, so link them as `[[meetings/index|Meetings]]`; a bare `[[index]]` is ambiguous.
@@ -120,10 +122,15 @@ The user states what they want; you pick the operation. They know their work, no
 
 - **Capture** — the user wants outside material in the vault ("grab today's emails", "that call just finished"); run `wiki-ingest` to fetch it from their tools and file it in `sources/` as `#status/pending`. (Web Clipper handles web articles into `sources/clippings/`.) Capture leaves the wiki untouched; the user may add a guidance note to any source before distilling.
 - **Distill** — the user wants what's been captured turned into wiki knowledge; run `wiki-distill` over all `#status/pending` sources.
-- **Capture the session** — the user wants what this conversation settled written into the wiki ("save what we decided", "get this in before we finish"); run `wiki-session-capture`. It writes to `wiki/` directly — a session leaves no note in `sources/`, so its claims carry no citation.
+- **Capture the session** — the user wants what this conversation settled written into the wiki ("save what we decided", "get this in before we finish"); run `wiki-session-capture`. It writes to `wiki/` directly — a session leaves no note in `sources/`, so its claims carry no citation. This is the one operation you may also raise yourself — see **the finding nudge** below.
 - **Onboard** — the user wants to start the wiki, or its sections no longer fit how they work; run `wiki-onboard`. It drafts the wiki from `PROFILE.md` where one is present, so the user is asked only about what their kickoff interview left open.
 - **Lint** — the user wants the wiki checked over or tidied; run `wiki-lint` to fix safe bookkeeping and route judgment calls to the maintenance files. Owns content + bookkeeping, never structure.
 - **Query** — the user asks a question; read `wiki/index.md`, drill into pages, answer with citations.
+- **Help** — the user asks where to start, what this is, or what to do next ("how does this work?", "what now?", "am I using this right?"); run `wiki-help`. It reads the vault's state and offers the next move; it never acts on its own. Distinguish it from **Query**: help is a question about the *vault*, query is a question about their *domain*.
+
+**The finding nudge**: the session-start hook watches material waiting in `sources/`; nothing watches the conversation itself, so that part is yours. When a session settles something the wiki would want — a decision the user made, a domain fact they stated, a constraint that shaped the work, a term they chose — say so once, name in a line or two what you would capture, and offer to run `wiki-session-capture`. Judge *settled* exactly as that skill does: the user stated it, chose between options, or confirmed a proposal of yours. A proposal they never answered settles nothing, and neither does your own analysis.
+
+Hold the offer to **once per session**, at a natural pause rather than mid-task, and never capture unasked. A second offer is nagging; if they decline or ignore it, drop it — they can ask in their own words whenever they want.
 
 Append meaningful passes to `meta/maintenance-log.md` (`YYYY-MM-DD · who · what`).
 

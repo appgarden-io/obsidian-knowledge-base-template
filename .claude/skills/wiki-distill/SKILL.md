@@ -45,7 +45,10 @@ Find every note tagged `#status/pending` under `sources/`, including
     defined by [references/entity-page-template.md](references/entity-page-template.md),
     which also carries the rule for superseding a claim a newer source has changed.
   - When nothing fits, or the fact implies a **new section**, leave the structure
-    alone and note it in `wiki/maintenance/open-questions.md`.
+    alone and note it in `wiki/maintenance/open-questions.md` — under "Section
+    candidates", saying which of the three justifications in `CLAUDE.md` it
+    already meets. Most such facts are a page in an existing section, not a
+    folder; propose the folder only when all three hold.
 - **Preserve provenance** — every claim ends in a wikilink to this source.
 - **Meetings** (`#source/transcript`, or otherwise meeting-like) also get a notes
   page in `wiki/meetings/` — see [references/meeting-note-template.md](references/meeting-note-template.md).

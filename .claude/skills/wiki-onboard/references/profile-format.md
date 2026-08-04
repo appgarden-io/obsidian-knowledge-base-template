@@ -97,13 +97,16 @@ the pack's own `## Gaps`, which is one input to this list rather than the whole
 of it. Everything outside these five goes to `open-questions.md` instead of
 becoming a question.
 
-1. **Section design.** The pack gives clusters, never a folder list.
+1. **Section design.** The pack gives clusters, never a folder list — and a
+   cluster becomes a folder only by clearing the skill's three-justification bar.
+   Their grouping is the input to that test, not a pass through it.
 2. **Ambiguous terms.** Every `_Ambiguous_` note in `Their words` is unresolved
    by construction.
 3. **Structural `Gaps`.** A `Gaps` entry earns a question when it would change
    the section list — a whole business line nobody explored, say. A gap that is
    merely missing content is an open question, not an interview question.
-4. **Entity or section?** A term dense enough to be either.
+4. **Entity or section?** A term dense enough to be either. It is a section only
+   with three real pages behind it today; otherwise it is one page.
 5. **Source reality.** The pack says how they talk, not what will actually land
    in `sources/`.
 

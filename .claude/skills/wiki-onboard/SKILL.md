@@ -36,6 +36,44 @@ answer — waiting for the answer before the next. Write artifacts *inline* as
 decisions crystallise. A fact the vault already holds is one you look up rather
 than ask.
 
+## The bar for a section
+
+**Default to flat.** The vault ships with `meetings/` and `maintenance/`; every
+other folder has to be earned. The person you are onboarding should be able to
+hold the whole structure in their head on day one — a few folders they can name,
+one level deep, each holding pages.
+
+Create a folder only when you can write down all **three** justifications. Two
+out of three is a page, not a folder.
+
+1. **Material** — name at least **three real pages** it holds *today*, drawn from
+   the pack or from sources already in the vault. Not pages it might hold once
+   the team gets going.
+2. **Routing** — a fact lands in it without a coin toss. If you can argue an
+   incoming source into two sections, they are one section: otherwise
+   `wiki-distill` files the same entity in both and the wiki forks.
+3. **Lookup** — someone on the team would open it to answer a question they ask
+   often, and would call it that. Use their word from `Their grouping`, not the
+   tidier one you'd pick.
+
+**Shape**: 3–5 sections is the normal answer. Past six, say what you are cutting
+before you propose it — and a subfolder inside a section is not something
+onboarding creates.
+
+**A rejected candidate doesn't vanish**:
+
+- fails **Material** → a page inside the nearest section that passes. It gets
+  promoted the day it has three pages of its own.
+- fails **Routing** → merge it into the section it overlaps, and keep its name as
+  an alias on the pages inside.
+- fails **Lookup** → no folder. The term still lives in `CONTEXT.md`, which is
+  what routes sources anyway.
+
+Log each rejected candidate under "Section candidates" in
+`wiki/maintenance/open-questions.md`, with the justification it failed. That is
+the growth path: the wiki starts small, and a section is added by re-running this
+skill once the material forces it.
+
 ## Flow
 
 ### 1. Read the pack
@@ -56,19 +94,28 @@ hire. Then rejoin at step 3.
 Working only from the pack, draft:
 
 - **The domain language** — `Their words`, near-verbatim.
-- **The sections** — led by `Their grouping`. A domain with 30 terms may want
-  4–6 sections.
+- **The sections** — led by `Their grouping`, each one clearing
+  [the bar](#the-bar-for-a-section). Thirty terms is not thirty sections; most
+  vaults land on 3–5.
 - **The seed pages** — one per system in `Systems of record`, one per named
   process, plus the entities in `2. Their part of the business`.
 - **The source types** — from `6. Conversations` and `7. Current tooling`. Only
   material that will actually land in `sources/` earns a type.
 
-**Done when** every term in `Their words` has a section it would file into.
+**Done when** every term in `Their words` has a section it would file into, and
+every section on the list carries its three justifications in writing.
 
 ### 3. Gate: propose, then grill what's open
 
-Show the draft **in one message**: the sections with a line on what each holds,
-the source types, and the terms you are taking as canonical. Ask for edits.
+Show the draft **in one message**: each section with its three justifications —
+the pages it holds today, why nothing else is its home, and the question someone
+opens it to answer — then the source types and the terms you are taking as
+canonical. Name the candidates you rejected, one line each, with the
+justification they failed.
+
+Ask for edits, and say plainly that the smaller structure is the one that stays
+usable. Where the user wants a section that misses the bar, take the instruction
+and note the miss in `open-questions.md` — structure is theirs.
 
 Then work the **grill list** in
 [references/profile-format.md](references/profile-format.md). **At most five
@@ -142,11 +189,24 @@ The user can decline or come back later. Say so, and note it in the log.
 Record in `meta/maintenance-log.md`: who was interviewed, the sections agreed,
 what was backfilled, and anything from `8. AI use` worth knowing later.
 
+### 10. Hand over
+
+Close by running `wiki-help` ([../wiki-help/SKILL.md](../wiki-help/SKILL.md)).
+The user has just answered a run of questions and owns a vault they have never
+used, so end on where they are and the one or two things worth doing next —
+not on a summary of what you built. `wiki-help` reads the state you just
+created, so it says the right thing whether or not they took the backfill.
+
+**Done when** the user knows their next move.
+
 ## Guardrails
 
 - **The pack is input, not authority** — nothing in it becomes structure until
   the step 3 gate. Where a tidier taxonomy than `Their grouping` suggests itself,
   propose it as the alternative and let the user pick.
+- **Fewest folders that work** — when two structures both fit, ship the one with
+  fewer sections. A folder is cheap to add later and expensive to unpick once
+  pages live in it.
 - **Discover before you create** — where `CONTEXT.md`, sections, or templates
   already exist, extend them, and confirm with the user before changing what's
   there.

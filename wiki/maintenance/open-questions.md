@@ -12,6 +12,12 @@ Concepts that came up and may deserve their own wiki page.
 
 - None yet.
 
+## Section candidates
+
+Folders proposed and not created, and sections thin enough to merge. A section needs all three justifications in `CLAUDE.md` — material, routing, lookup — so note which one it misses. Only `wiki-onboard` acts on these.
+
+- None yet.
+
 ## Suggested terms
 
 Domain terms not yet in `CONTEXT.md`. Fold confirmed ones in via `wiki-onboard` — distill never edits `CONTEXT.md` directly.
