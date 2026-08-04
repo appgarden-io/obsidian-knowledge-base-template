@@ -30,10 +30,18 @@ vendor. Typical mappings:
 | meeting transcript | a transcript MCP (Granola / Otter / Fathom), or Drive (Google Meet) | `#source/transcript` |
 | a document | Google Drive / a file MCP | `#source/doc` |
 | a Slack thread | Slack MCP | `#source/slack` |
+| files in a folder | the filesystem — read them directly | by file type |
 
 When the needed connector is missing, name it and say how to connect it. When the
 user pastes or points at content directly, skip the fetch and write the note from
 what they gave you, asking only for header fields you can't infer.
+
+**Bulk is a different job.** A whole drive, a work directory, a mailbox back to
+2024 — that is the first backfill, and it belongs to `wiki-onboard`
+(`references/backfill.md`): survey, a plan the user edits, a sample per batch,
+then ingest. This skill is the daily path — a batch a user can eyeball. When an
+ask is clearly a backfill, say so and hand over rather than writing hundreds of
+notes.
 
 ## Workflow
 
@@ -67,6 +75,10 @@ name derived from the item — `gmail-acme-pricing-2026-06-08.md`,
   the user has an obvious place to steer the next pass.
 - **Body** — the fetched content verbatim, under a `## Source` heading. Summarizing
   is distill's job, and `sources/` is the permanent record.
+- **Too big, or not text** — a long PDF, a spreadsheet, a deck, an image. Write
+  the header as normal, then an extracted text summary and a path or URL pointer
+  to the original, and say in the note that it is a pointer rather than the whole
+  item. Never truncate silently mid-item.
 
 **Done when** every fetched item has a note whose header fields are all filled
 from real metadata. A field you left blank means the fetch came up short — go

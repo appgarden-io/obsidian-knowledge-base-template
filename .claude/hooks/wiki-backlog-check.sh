@@ -6,8 +6,7 @@
 # waiting it prints a note for the agent, which relays it to the user and
 # offers to run wiki-distill. Silent when the vault is clean.
 #
-# Wired in as a SessionStart hook by .claude/settings.json. Lives here rather
-# than under .claude/ so any agent tool can reuse it.
+# Wired in as a SessionStart hook by .claude/settings.json.
 
 set -uo pipefail
 

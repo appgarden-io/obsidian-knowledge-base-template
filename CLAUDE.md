@@ -26,13 +26,14 @@ meta/
 
 These conventions are canonical: the skills state their own procedure and defer to this file for the shared rules below.
 
-`PROFILE.md` is not one of them — it is **setup input**, not a standing document. A vault ships with the kickoff pack from the interview that preceded it; `wiki-onboard` reads it to draft the wiki, then files it into `sources/` as a `#source/kickoff` note so its facts get distilled with provenance. After onboarding the root no longer holds it. Its format is `.agents/skills/wiki-onboard/references/profile-format.md`.
+`PROFILE.md` is not one of them — it is **setup input**, not a standing document. A vault ships with the kickoff pack from the interview that preceded it; `wiki-onboard` reads it to draft the wiki, then files it into `sources/` as a `#source/kickoff` note so its facts get distilled with provenance. After onboarding the root no longer holds it. Its format is `.claude/skills/wiki-onboard/references/profile-format.md`.
 
 ## Provenance
 
 Every claim in the wiki traces back to the raw material it came from. This is the invariant the vault exists to protect, and the reason a wiki page is worth more than the transcript it came from.
 
-- **Sources are the archive** — append-only. You never edit a source's raw content and never delete one. The only changes are the status flag (`#status/pending` → `#status/distilled`, by distill) and guidance the *user* adds in the callout.
+- **Sources are the archive** — append-only. You never edit a source's raw content. The only changes are the status flag (`#status/pending` → `#status/distilled`, by distill) and guidance the *user* adds in the callout.
+- **A source can be deleted only while nothing cites it** — that is, while it is still `#status/pending`. Once distilled, wiki claims point at it and removing it would break provenance, so it stays forever. This is the undo for a bulk ingest that pulled in junk. Deletion is always the **user's** call: you propose, they approve, and you never delete on your own initiative.
 - **Every claim cites its source**, inline, with a wikilink at the end of the claim: `Headcount is roughly 240. [[acme-call-2026-08-01]]`. A fact you can't attribute belongs in `wiki/maintenance/open-questions.md`, not on a page.
 - **Superseded claims keep their history** — when a newer source changes a fact, the old claim moves to a dated child bullet beneath the live one.
 - **Attribution** — whoever added or fetched a source is its `submitted_by`. When that's unknowable, set the field to `unknown` and add a follow-up to `open-questions.md`.
@@ -49,9 +50,9 @@ Where a skill says *preserve provenance*, it means this section.
 
 If the wiki has not been set up yet (`CONTEXT.md` or source templates missing), use `.claude/skills/wiki-onboard/SKILL.md` first.
 
-**Where skills live**: every skill's real files are in `.agents/skills/<name>/`, and `.claude/skills/<name>` is a symlink to it — so the same skills work for any agent tool, not just Claude Code. A new skill is authored under `.agents/skills/` and symlinked in: `ln -s ../../.agents/skills/<name> .claude/skills/<name>`.
+**Where skills live**: every skill is a real directory at `.claude/skills/<name>/`. No symlinks anywhere in the vault — a copy, a clone, or an unzipped download all behave identically, on macOS and on Windows. Author a new skill directly under `.claude/skills/`.
 
-**The session-start nudge**: `.agents/hooks/wiki-backlog-check.sh` counts what is waiting — source notes still tagged `#status/pending` and unresolved items in `wiki/maintenance/open-questions.md` — and prints a line when either is above zero. `.claude/settings.json` runs it as a `SessionStart` hook, so its output lands in your context at the top of every session. When you see it, raise the backlog with the user early and offer to distill; never start distilling off the nudge alone. It is silent when the vault is clean. The script sits in `.agents/` so other agent tools can wire it up too; only the `SessionStart` wiring is Claude Code–specific.
+**The session-start nudge**: `.claude/hooks/wiki-backlog-check.sh` counts what is waiting — source notes still tagged `#status/pending` and unresolved items in `wiki/maintenance/open-questions.md` — and prints a line when either is above zero. `.claude/settings.json` runs it as a `SessionStart` hook, so its output lands in your context at the top of every session. When you see it, raise the backlog with the user early and offer to distill; never start distilling off the nudge alone. It is silent when the vault is clean.
 
 ## Obsidian-native markup (always)
 

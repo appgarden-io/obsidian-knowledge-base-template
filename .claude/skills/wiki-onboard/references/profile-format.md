@@ -66,7 +66,7 @@ distill flag. They are unrelated.
 ## What each part drives
 
 The pack is **design input, not a decision**. Nothing here becomes structure
-without the user approving it in step 3 of the skill.
+until the user approves it at the skill's step 3 gate.
 
 | Pack part | What it settles |
 |---|---|
@@ -86,18 +86,20 @@ without the user approving it in step 3 of the skill.
 | Appendix — full Q&A | Never mined for structure. It rides along in the filed source, for `wiki-distill`. |
 
 **`Their grouping` outranks your own taxonomy.** When a tidier information
-architecture suggests itself, propose it as an alternative in step 3 and let the
-user choose — do not quietly substitute it.
+architecture suggests itself, propose it at the step 3 gate as the alternative
+and let the user pick.
 
-## What the pack cannot settle
+## The grill list
 
-These are what the grill in step 3 is *for*. Everything else the pack leaves
-open goes to `open-questions.md` instead of becoming a question.
+What the pack cannot settle, and so what the step 3 gate is *for*. Distinct from
+the pack's own `## Gaps`, which is one input to this list rather than the whole
+of it. Everything outside these five goes to `open-questions.md` instead of
+becoming a question.
 
 1. **Section design.** The pack gives clusters, never a folder list.
 2. **Ambiguous terms.** Every `_Ambiguous_` note in `Their words` is unresolved
    by construction.
-3. **Structural gaps.** A `Gaps` entry only earns a question if it would change
+3. **Structural `Gaps`.** A `Gaps` entry earns a question when it would change
    the section list — a whole business line nobody explored, say. A gap that is
    merely missing content is an open question, not an interview question.
 4. **Entity or section?** A term dense enough to be either.
@@ -122,5 +124,5 @@ Read them all before proposing anything.
 
 ## No pack
 
-The skill still works. Run the full interview described in its step 3 fallback —
+The skill still works. Run the full interview described in its step 1 fallback —
 the pack is an accelerator, never a prerequisite.

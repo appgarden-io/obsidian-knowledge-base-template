@@ -34,7 +34,7 @@ Deterministic invariants — settle each with Glob / Grep / Read:
 2. **Dangling links** — every `[[wikilink]]` resolves to a real page, heading, or alias. Index links are path-qualified (`[[meetings/index|Meetings]]`).
 3. **Orphans** — pages whose only inbound link is their section `index.md`. Nothing in the wiki connects to them by meaning, so the graph can't reach them.
 4. **Index coverage** — each page is listed in its section `index.md`, and each section is linked from the root `wiki/index.md`.
-5. **Source integrity** — no source carries both `#status/pending` and `#status/distilled`; every source has a real `submitted_by`; and report the `#status/pending` count still waiting (the backlog). A `PROFILE.md` still sitting at the root means `wiki-onboard` never finished filing the kickoff pack — flag it, don't move it.
+5. **Source integrity** — no source carries both `#status/pending` and `#status/distilled`; every source has a real `submitted_by`; and report the `#status/pending` count still waiting (the backlog). A `PROFILE.md` still sitting at the root means `wiki-onboard` never finished filing the kickoff pack — flag it, don't move it. A `#status/pending` source that mentions no `CONTEXT.md` term is probably ingest junk: list those for the user to delete, and never delete one yourself.
 6. **Provenance** — every entity page cites at least one source, and every claim on it carries a citation. Then list any `#status/distilled` source that no page cites: usually a missed fact, occasionally a source that genuinely held nothing — report the list for a human glance rather than flagging each as an error.
 7. **Alias sanity** — entity `aliases:` are precise; a generic single-word alias will mis-autolink ordinary prose across the vault.
 

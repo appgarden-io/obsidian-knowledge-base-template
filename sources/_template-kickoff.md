@@ -42,5 +42,5 @@ The body is the pack itself:
 
 Note `status:` above is interview completeness, not the distill flag — that is
 the `#status/pending` tag. The full shape is documented in
-`.agents/skills/wiki-onboard/references/profile-format.md`.
+`.claude/skills/wiki-onboard/references/profile-format.md`.
 -->
