@@ -7,6 +7,7 @@ This repository is an Obsidian company wiki: a plain-markdown vault that Claude 
 ```text
 CONTEXT.md   the team's domain language (glossary) — read before distilling
 CLAUDE.md    these conventions
+PROFILE.md   the kickoff pack this vault shipped with — setup input, consumed by wiki-onboard
 sources/     raw material, flat; sources/clippings/ is the Web Clipper landing zone
 wiki/
   index.md     root map → first-level sections only
@@ -25,6 +26,8 @@ meta/
 
 These conventions are canonical: the skills state their own procedure and defer to this file for the shared rules below.
 
+`PROFILE.md` is not one of them — it is **setup input**, not a standing document. A vault ships with the kickoff pack from the interview that preceded it; `wiki-onboard` reads it to draft the wiki, then files it into `sources/` as a `#source/kickoff` note so its facts get distilled with provenance. After onboarding the root no longer holds it. Its format is `.agents/skills/wiki-onboard/references/profile-format.md`.
+
 ## Provenance
 
 Every claim in the wiki traces back to the raw material it came from. This is the invariant the vault exists to protect, and the reason a wiki page is worth more than the transcript it came from.
@@ -41,11 +44,14 @@ Where a skill says *preserve provenance*, it means this section.
 - **wiki-onboard** — set up or re-map the wiki (domain → `CONTEXT.md` → sections → source templates). Owns structure.
 - **wiki-ingest** — fetch material from the user's tools (email, meetings, Drive, Slack) into `sources/` as `#status/pending`. The active capture path.
 - **wiki-distill** — turn pending sources into wiki pages. Owns content.
+- **wiki-session-capture** — capture what a Claude session settled straight into `wiki/`, bypassing `sources/`. Owns content.
 - **wiki-lint** — health-check the wiki: fix safe bookkeeping (broken links, missing index entries), route judgment calls to the maintenance files, report.
 
 If the wiki has not been set up yet (`CONTEXT.md` or source templates missing), use `.claude/skills/wiki-onboard/SKILL.md` first.
 
 **Where skills live**: every skill's real files are in `.agents/skills/<name>/`, and `.claude/skills/<name>` is a symlink to it — so the same skills work for any agent tool, not just Claude Code. A new skill is authored under `.agents/skills/` and symlinked in: `ln -s ../../.agents/skills/<name> .claude/skills/<name>`.
+
+**The session-start nudge**: `.agents/hooks/wiki-backlog-check.sh` counts what is waiting — source notes still tagged `#status/pending` and unresolved items in `wiki/maintenance/open-questions.md` — and prints a line when either is above zero. `.claude/settings.json` runs it as a `SessionStart` hook, so its output lands in your context at the top of every session. When you see it, raise the backlog with the user early and offer to distill; never start distilling off the nudge alone. It is silent when the vault is clean. The script sits in `.agents/` so other agent tools can wire it up too; only the `SessionStart` wiring is Claude Code–specific.
 
 ## Obsidian-native markup (always)
 
@@ -86,9 +92,12 @@ Web articles arrive via the Obsidian Web Clipper into `sources/clippings/`, alre
 
 | Type | Tag | Extra properties |
 |------|-----|------------------|
+| kickoff | `#source/kickoff` | company, role, status |
 | email | `#source/email` | from, to, thread |
 | transcript | `#source/transcript` | attendees |
 | web-clip | `#source/web-clip` | url, site |
+
+`kickoff` ships with the template and always applies — it is the interview pack the vault arrived with, filed by `wiki-onboard`. Its `status` property is interview completeness (`complete` / `partial`), unrelated to the `#status/` tag.
 
 ## Wiki
 
@@ -110,7 +119,8 @@ The user states what they want; you pick the operation. They know their work, no
 
 - **Capture** — the user wants outside material in the vault ("grab today's emails", "that call just finished"); run `wiki-ingest` to fetch it from their tools and file it in `sources/` as `#status/pending`. (Web Clipper handles web articles into `sources/clippings/`.) Capture leaves the wiki untouched; the user may add a guidance note to any source before distilling.
 - **Distill** — the user wants what's been captured turned into wiki knowledge; run `wiki-distill` over all `#status/pending` sources.
-- **Onboard** — the user wants to start the wiki, or its sections no longer fit how they work; run `wiki-onboard`.
+- **Capture the session** — the user wants what this conversation settled written into the wiki ("save what we decided", "get this in before we finish"); run `wiki-session-capture`. It writes to `wiki/` directly — a session leaves no note in `sources/`, so its claims carry no citation.
+- **Onboard** — the user wants to start the wiki, or its sections no longer fit how they work; run `wiki-onboard`. It drafts the wiki from `PROFILE.md` where one is present, so the user is asked only about what their kickoff interview left open.
 - **Lint** — the user wants the wiki checked over or tidied; run `wiki-lint` to fix safe bookkeeping and route judgment calls to the maintenance files. Owns content + bookkeeping, never structure.
 - **Query** — the user asks a question; read `wiki/index.md`, drill into pages, answer with citations.
 
