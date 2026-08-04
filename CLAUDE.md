@@ -40,8 +40,8 @@ Where a skill says *preserve provenance*, it means this section.
 
 - **wiki-onboard** — set up or re-map the wiki (domain → `CONTEXT.md` → sections → source templates). Owns structure.
 - **wiki-ingest** — fetch material from the user's tools (email, meetings, Drive, Slack) into `sources/` as `#status/pending`. The active capture path.
-- **wiki-distill** — turn pending sources into wiki pages. Owns content. Run when the user says "distill".
-- **wiki-lint** — health-check the wiki: fix safe bookkeeping (broken links, missing index entries), route judgment calls to the maintenance files, report. Run when the user says "lint the wiki".
+- **wiki-distill** — turn pending sources into wiki pages. Owns content.
+- **wiki-lint** — health-check the wiki: fix safe bookkeeping (broken links, missing index entries), route judgment calls to the maintenance files, report.
 
 If the wiki has not been set up yet (`CONTEXT.md` or source templates missing), use `.claude/skills/wiki-onboard/SKILL.md` first.
 
@@ -106,9 +106,12 @@ Web articles arrive via the Obsidian Web Clipper into `sources/clippings/`, alre
 
 ## Operations
 
-- **Capture** — the user asks you to bring material in ("ingest today's emails", "ingest the latest meeting"); run `wiki-ingest` to fetch it from their tools and file it in `sources/` as `#status/pending`. (Web Clipper handles web articles into `sources/clippings/`.) Capture does not change the wiki; the user may add a guidance note to any source before distilling.
-- **Distill** — the user says "distill"; run `wiki-distill` over all `#status/pending` sources.
-- **Lint** — the user says "lint the wiki"; run `wiki-lint` to fix safe bookkeeping and route judgment calls to the maintenance files. Owns content + bookkeeping, never structure.
+The user states what they want; you pick the operation. They know their work, not the skill names — a request that means one of these fires it, however it is worded.
+
+- **Capture** — the user wants outside material in the vault ("grab today's emails", "that call just finished"); run `wiki-ingest` to fetch it from their tools and file it in `sources/` as `#status/pending`. (Web Clipper handles web articles into `sources/clippings/`.) Capture leaves the wiki untouched; the user may add a guidance note to any source before distilling.
+- **Distill** — the user wants what's been captured turned into wiki knowledge; run `wiki-distill` over all `#status/pending` sources.
+- **Onboard** — the user wants to start the wiki, or its sections no longer fit how they work; run `wiki-onboard`.
+- **Lint** — the user wants the wiki checked over or tidied; run `wiki-lint` to fix safe bookkeeping and route judgment calls to the maintenance files. Owns content + bookkeeping, never structure.
 - **Query** — the user asks a question; read `wiki/index.md`, drill into pages, answer with citations.
 
 Append meaningful passes to `meta/maintenance-log.md` (`YYYY-MM-DD · who · what`).

@@ -3,9 +3,10 @@ name: wiki-onboard
 description: >
   Onboard an Obsidian company wiki: grill the user about their domain, then
   write `CONTEXT.md`, the wiki sections, and the source templates. Use when the
-  user asks to set up, configure, or re-map their wiki, and when `CONTEXT.md` or
-  the source templates are missing. Owns structure — sections and the domain
-  model change only here.
+  user wants to start a wiki or reshape one — setting it up, describing how
+  their team works, or finding the sections no longer fit — and whenever
+  `CONTEXT.md` or the source templates are missing. Owns structure: sections
+  and the domain model change only here.
 ---
 
 # Wiki Onboard

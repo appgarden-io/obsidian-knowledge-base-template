@@ -2,9 +2,10 @@
 name: wiki-distill
 description: >
   Distill pending sources in an Obsidian company wiki into entity pages,
-  preserving provenance. Use when the user says "distill" or asks to process
-  the source inbox, and when `sources/` holds notes still tagged
-  `#status/pending`.
+  preserving provenance. Use when the user wants what's been collected turned
+  into wiki knowledge — distilling, working through the inbox, catching the
+  wiki up on material that has landed — and whenever `sources/` still holds
+  notes tagged `#status/pending`.
 ---
 
 # Wiki Distill

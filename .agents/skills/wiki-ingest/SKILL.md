@@ -2,9 +2,11 @@
 name: wiki-ingest
 description: >
   Ingest outside material into an Obsidian company wiki as `#status/pending`
-  source notes. Use when the user asks to bring something in — today's emails,
-  the latest meeting transcript, a Drive doc, a Slack thread — or hands you
-  content directly. Lands sources; distilling them is `wiki-distill`'s job.
+  source notes. Use when the user wants something from their tools brought into
+  the vault — a morning's email, the meeting that just ended, a doc someone
+  shared, a Slack thread worth keeping — or hands you the content directly,
+  whether or not they name a skill or a folder. Lands sources; distilling them
+  is `wiki-distill`'s job.
 ---
 
 # Wiki Ingest

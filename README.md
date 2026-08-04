@@ -22,7 +22,9 @@ A minimal template for a Claude-maintained company wiki in Obsidian. You feed in
    - your wiki sections (`wiki/<section>/`)
    - a source template per type you use (emails, transcripts, …)
 3. **Ingest material**: ask Claude to pull it from your connected tools — *"check today's emails and add them"*, *"ingest the latest meeting"*. Claude fetches and files each as a source marked `#status/pending`. (Optionally, add a guidance note to any source to steer the next step.)
-4. Say **"distill"** whenever you want Claude to fold pending sources into the wiki.
+4. Ask Claude to **distill** whenever you want pending sources folded into the wiki.
+
+There are no magic words. Ask for what you want in your own words — *"catch the wiki up"*, *"is anything out of date?"* — and Claude picks the right skill. The names below are just what those skills are called.
 
 If you use the Obsidian Web Clipper, set its destination to `sources/clippings/`. Claude reaches your email / meetings / Drive / Slack through your connected tools — connect the ones you use.
 

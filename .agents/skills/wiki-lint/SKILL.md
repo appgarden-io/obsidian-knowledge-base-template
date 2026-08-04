@@ -3,8 +3,9 @@ name: wiki-lint
 description: >
   Lint an Obsidian company wiki: verify its structural invariants, fix the safe
   bookkeeping, and route judgment calls to the maintenance files. Use when the
-  user says "lint the wiki", asks for a health-check or maintenance pass, or
-  asks after orphans, broken links, or contradictions.
+  user wants the wiki checked over or tidied up — worried it has drifted, gone
+  stale, or grown broken links, orphans, and contradictions — or wants to know
+  how healthy it is.
 ---
 
 # Wiki Lint
