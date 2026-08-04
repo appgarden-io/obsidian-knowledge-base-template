@@ -41,7 +41,8 @@ For each pending source:
   - Find the entity's page in the right section (e.g. `wiki/customers/acme-corp.md`).
   - If the page doesn't exist *but its section does*, create it (look before you create).
   - If nothing fits, or it implies a **new section**, do NOT create the section — add a note to `wiki/maintenance/open-questions.md`.
-- **Cite every claim** back to the source with a wikilink: `[[acme-call-2026-06-08]]`.
+  - Write the page in the shape defined by [references/entity-page-template.md](references/entity-page-template.md) — frontmatter, facet headings, and how to supersede a claim a newer source has changed without losing the old one.
+- **Cite every claim** back to the source with a wikilink at the end of the claim: `Headcount is roughly 240. [[acme-call-2026-08-01]]`.
 - **Meetings** (`#source/transcript` or otherwise meeting-like): also create/update a lightweight notes page in `wiki/meetings/` — see [references/meeting-note-template.md](references/meeting-note-template.md).
 - **Route the leftovers — never drop them:**
   - Conflicts with an existing wiki claim → `wiki/maintenance/contradictions.md`
@@ -79,4 +80,5 @@ Tell the user: pages created, pages updated, and what landed in open-questions /
 
 ## Reference files
 
+- **[references/entity-page-template.md](references/entity-page-template.md)** — the shape of an entity page: frontmatter, facets, the citation convention, and how to supersede a claim.
 - **[references/meeting-note-template.md](references/meeting-note-template.md)** — lightweight, entity-centric meeting notes format.

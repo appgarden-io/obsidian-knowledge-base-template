@@ -32,6 +32,8 @@ meta/
 
 If the wiki has not been set up yet (`CONTEXT.md` or source templates missing), use `.claude/skills/wiki-onboard/SKILL.md` first.
 
+**Where skills live**: every skill's real files are in `.agents/skills/<name>/`, and `.claude/skills/<name>` is a symlink to it — so the same skills work for any agent tool, not just Claude Code. When adding a skill, create it under `.agents/skills/` and symlink it: `ln -s ../../.agents/skills/<name> .claude/skills/<name>`. Never put real files under `.claude/skills/`.
+
 ## Obsidian-native markup (always)
 
 - **Tags** carry facets you filter by: source type (`#source/transcript`) and status (`#status/pending`).
