@@ -43,8 +43,7 @@ Source: [[{source-slug}]]   ← link back to the transcript in sources/
 
 - Link people, companies, and terms with `[[wikilinks]]` so they connect in the graph.
 - Facts that belong on an entity page (e.g. a customer's needs, a person's role)
-  go on that **entity page** with a citation — not only here. This note is the
-  meeting's synthesis, not the home for every fact it surfaced.
-- The raw transcript is never edited; it stays in `sources/` as the record.
+  go on that **entity page** with a citation. This note is one conversation's
+  synthesis; the entity page is where a fact lives.
 - Title has no date (the `date` property carries it). File name is kebab-case
   and globally unique, e.g. `acme-discovery-bob-2026-06-08.md`.

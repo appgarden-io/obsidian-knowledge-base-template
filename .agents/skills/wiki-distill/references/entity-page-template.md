@@ -12,7 +12,7 @@ exception — see [meeting-note-template.md](meeting-note-template.md).
 ```yaml
 ---
 title: Acme Corp
-aliases: [Acme, Acme Corporation]   # precise — never a generic single word
+aliases: [Acme, Acme Corporation]   # the mentions that should auto-link here
 tags:
   - entity/customer                 # mirrors the section the page lives in
 updated: 2026-06-08                 # date of the newest source folded in
@@ -38,48 +38,39 @@ domain's words, so a reader knows what this is before scrolling.
 ```
 
 Section headings are the entity's **facets** — pick what the domain actually
-tracks (Needs, People, Commercials, Risks, History). Don't ship empty headings.
+tracks (Needs, People, Commercials, Risks, History), and ship the ones that have
+claims under them today.
 
 ## Citation convention
 
-**Every claim ends with a wikilink to the source it came from.** One claim, one
-line, one citation:
+One claim, one line, one citation — the wikilink closes the bullet:
 
 ```md
 - Headcount is roughly 240. [[acme-call-2026-08-01]]
 ```
 
-- Cite **inline**, at the end of the claim — not in a footer list. Obsidian's
-  backlinks pane already gives you the reverse index; a `## Sources` section
-  would be a second copy that drifts.
-- A claim confirmed by several sources carries several links.
-- No claim without a citation. If you can't point at a source, it doesn't go on
-  the page — it goes to `wiki/maintenance/open-questions.md`.
+Cite inline rather than in a footer list: Obsidian's backlinks pane is already
+the reverse index, and a `## Sources` section is a second copy that drifts. A
+claim several sources confirm carries several links.
 
 ## Superseding a claim
 
-When a newer source changes a fact, **keep the history**. The live claim stays
-on the top-level bullet; the old one moves beneath it as a dated child:
+The live claim stays on the top-level bullet; the one it replaces moves beneath
+it as a dated child, and `updated:` moves to the newer source's date:
 
 ```md
 - Headcount is roughly 240. [[acme-call-2026-08-01]]
   - Was 180 as of 2026-06-08. [[acme-call-2026-06-08]]
 ```
 
-Never delete the superseded line and never silently overwrite — the audit trail
-back to sources is the point of the wiki. Bump `updated:` when you do this.
-
-If the two claims can't be reconciled — the newer source doesn't obviously
-supersede the older, they simply disagree — leave the page alone and route it to
-`wiki/maintenance/contradictions.md` instead.
+This shape only fits when the newer source plainly supersedes the older. Two
+sources that simply disagree leave the page as it stands and go to
+`wiki/maintenance/contradictions.md`.
 
 ## Rules
 
-- **One entity, one page.** Look before you create; check `aliases:` on existing
-  pages before deciding a mention is a new entity.
-- **Aliases must be precise.** `Acme`, `Acme Corp` — yes. `Ops`, `The team` — no;
-  a generic single word will mis-autolink ordinary prose across the vault.
+- **One entity, one page** — a mention matching an existing page's `aliases:` is
+  that entity, not a new one.
 - **Link entities to each other** with wikilinks, so the graph view is useful.
-- **Add the page to its section `index.md`** when you create it.
-- **Facts live on the entity page**, even when they surfaced in a meeting. A
-  meeting note is a synthesis of one conversation, not the home of the fact.
+- **Aliases stay precise** — `Acme`, `Acme Corp`; a generic single word like
+  `Ops` would mis-autolink ordinary prose across the vault.

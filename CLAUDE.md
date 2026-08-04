@@ -23,6 +23,19 @@ meta/
 - **CONTEXT.md** — what the domain words mean and how they relate. Grows; owned by `wiki-onboard`.
 - **wiki/index.md** — the live map of sections (the information architecture).
 
+These conventions are canonical: the skills state their own procedure and defer to this file for the shared rules below.
+
+## Provenance
+
+Every claim in the wiki traces back to the raw material it came from. This is the invariant the vault exists to protect, and the reason a wiki page is worth more than the transcript it came from.
+
+- **Sources are the archive** — append-only. You never edit a source's raw content and never delete one. The only changes are the status flag (`#status/pending` → `#status/distilled`, by distill) and guidance the *user* adds in the callout.
+- **Every claim cites its source**, inline, with a wikilink at the end of the claim: `Headcount is roughly 240. [[acme-call-2026-08-01]]`. A fact you can't attribute belongs in `wiki/maintenance/open-questions.md`, not on a page.
+- **Superseded claims keep their history** — when a newer source changes a fact, the old claim moves to a dated child bullet beneath the live one.
+- **Attribution** — whoever added or fetched a source is its `submitted_by`. When that's unknowable, set the field to `unknown` and add a follow-up to `open-questions.md`.
+
+Where a skill says *preserve provenance*, it means this section.
+
 ## Skills
 
 - **wiki-onboard** — set up or re-map the wiki (domain → `CONTEXT.md` → sections → source templates). Owns structure.
@@ -32,7 +45,7 @@ meta/
 
 If the wiki has not been set up yet (`CONTEXT.md` or source templates missing), use `.claude/skills/wiki-onboard/SKILL.md` first.
 
-**Where skills live**: every skill's real files are in `.agents/skills/<name>/`, and `.claude/skills/<name>` is a symlink to it — so the same skills work for any agent tool, not just Claude Code. When adding a skill, create it under `.agents/skills/` and symlink it: `ln -s ../../.agents/skills/<name> .claude/skills/<name>`. Never put real files under `.claude/skills/`.
+**Where skills live**: every skill's real files are in `.agents/skills/<name>/`, and `.claude/skills/<name>` is a symlink to it — so the same skills work for any agent tool, not just Claude Code. A new skill is authored under `.agents/skills/` and symlinked in: `ln -s ../../.agents/skills/<name> .claude/skills/<name>`.
 
 ## Obsidian-native markup (always)
 
@@ -65,25 +78,24 @@ tags:
 (raw content — never edited by Claude)
 ```
 
-- **Immutable raw**: Claude never edits a source's raw content and never deletes a source. The only changes are the status flag (`#status/pending` → `#status/distilled`, by distill) and guidance the *user* adds in the callout.
-- The person who added or fetched a source is `submitted_by`. If attribution is missing, set the field to `unknown` and add a follow-up to `wiki/maintenance/open-questions.md`.
-- Web articles arrive via the Obsidian Web Clipper into `sources/clippings/`, already carrying the header.
+Web articles arrive via the Obsidian Web Clipper into `sources/clippings/`, already carrying the header. Sources are the archive — see **Provenance**.
 
 ### Source types
 
-`wiki-onboard` records each source type and its extra properties here. Until then, the common base applies to all. Example:
+`wiki-onboard` records each source type and its extra properties here — this table is the schema `wiki-ingest` fills in. Until then, the common base applies to all. A type's own date is always `source_date`; extras carry only what the base doesn't. Example:
 
 | Type | Tag | Extra properties |
 |------|-----|------------------|
 | email | `#source/email` | from, to, thread |
-| transcript | `#source/transcript` | attendees, meeting_date |
+| transcript | `#source/transcript` | attendees |
 | web-clip | `#source/web-clip` | url, site |
 
 ## Wiki
 
 - Compile knowledge into **designed sections** (`wiki/<section>/`), not a generic bucket. Sections are a deliberate information architecture defined at onboarding — informed by `CONTEXT.md`, not a 1:1 list of every term.
 - **Progressive disclosure**: `wiki/index.md` links only to first-level sections. Every directory under `wiki/` has its own `index.md`. When creating a section, create its `index.md` first and add it to the parent index.
-- **Entity-centric**: distilled facts fold into entity pages (e.g. `wiki/customers/acme-corp.md`), built from many sources over time. Every claim links back to the source it came from with a wikilink.
+- **Entity-centric**: distilled facts fold into entity pages (e.g. `wiki/customers/acme-corp.md`), built from many sources over time.
+- **Index links are path-qualified** — every directory has an `index.md`, so link them as `[[meetings/index|Meetings]]`; a bare `[[index]]` is ambiguous.
 - **Meetings** also get a short notes page in `wiki/meetings/` — the one source-shaped page type.
 - Put conflicting claims in `wiki/maintenance/contradictions.md`. Put unresolved follow-ups, suggested new pages, and suggested new terms in `wiki/maintenance/open-questions.md`.
 
