@@ -10,63 +10,47 @@ description: >
 
 # Wiki Help
 
-The user is not technical and did not build this vault. Work out where the wiki
-actually is, say so in one line, and hand them the two or three things worth
-doing next — phrased as things they could say, not skill names.
+The user is not technical and did not build this vault. Answer one question:
+what is worth doing next? Three checks, then a short offer.
 
 **This skill changes nothing.** No file written, no source touched, no page
-created, no status flipped. Where the answer is "distill what's waiting", you
-*offer* and wait for a yes.
+created, no status flipped. You offer; they answer.
 
-## 1. Read the state
+## The three checks
 
-Eight cheap checks from the vault root — Glob, Grep, Read, nothing else:
+Run all three (Glob, Grep, Read — nothing else), then offer what matches.
 
-| # | Signal | How to read it |
-|---|--------|----------------|
-| 1 | Onboarded | `CONTEXT.md` exists at the root |
-| 2 | Onboarding finished | no `PROFILE.md` left at the root, and `sources/_template-*.md` exist |
-| 3 | Sections | first-level directories under `wiki/`, `meetings/` and `maintenance/` aside |
-| 4 | Pages | `.md` files inside those sections, not counting `index.md` |
-| 5 | Waiting | sources tagged `#status/pending` (skip `_template-*.md`) |
-| 6 | Distilled | sources tagged `#status/distilled` |
-| 7 | Loose ends | real bullets in `open-questions.md` and `contradictions.md` |
-| 8 | Last pass | the final line of `meta/maintenance-log.md` |
+**1. Are they onboarded?** — does `CONTEXT.md` exist at the root?
 
-**Check 7 has a trap.** Both files ship with placeholder bullets, and they are
-worded differently in each: `No open questions yet.`, `None yet.` (three of
-them, one per heading), and `No contradictions recorded yet.`. Count a bullet
-only when it is none of those — otherwise you report a contradiction in a vault
-that has never been used.
+- **No** → this is the only thing worth doing. Offer to set the wiki up
+  (`wiki-onboard`). A `PROFILE.md` still at the root means their kickoff
+  interview is already in the vault, so say that — it makes setup short. Stop
+  here; the other two checks don't matter yet.
+- **Yes** → the wiki is ready to feed. Offer both ways in:
+  - bring outside material in — email, a call that just ended, a doc someone
+    shared (`wiki-ingest`)
+  - think an idea through with you and keep what it settles
+    (`wiki-session-capture`)
 
-## 2. Name the state
+**2. Is anything waiting?** — sources tagged `#status/pending` (skip
+`_template-*.md`). If there are several, offer to distill them into the wiki
+(`wiki-distill`), with the count.
 
-Walk the ladder top to bottom and stop at the **first** rung that matches. That
-one is the headline and its move is what you offer. Rungs below it that also
-match get a single line each, no more.
+**3. Any open questions?** — real bullets in `wiki/maintenance/open-questions.md`.
+If there are, name a couple and ask whether they want to resolve any.
 
-| State | Matches when | The move |
-|---|---|---|
-| **Not set up** | no `CONTEXT.md` | Set the wiki up (`wiki-onboard`). A `PROFILE.md` at the root means their kickoff interview is already in the vault, so say that — it makes the setup short. |
-| **Half set up** | `CONTEXT.md` exists, but `PROFILE.md` is still at the root or the source templates are missing | Onboarding stopped partway. Finishing it (`wiki-onboard`) files the pack into `sources/` and writes the templates. |
-| **Empty** | onboarded, no pages, nothing waiting | Shaped but holding nothing. Get material in — connect the tools they named and backfill, or hand you something directly (`wiki-ingest`). |
-| **Waiting** | anything is tagged `#status/pending` | Material has landed but is not knowledge yet. Distill it (`wiki-distill`). |
-| **Drifting** | any contradiction, or more than ten open questions, or the last log line is over a month old | Loose ends are outgrowing the wiki. Check it over (`wiki-lint`) and work through the open questions. |
-| **Working** | pages exist and nothing is pending | It is doing its job. Say what it holds, and what to say to keep it fed. |
+> The maintenance files ship with placeholders — `No open questions yet.`,
+> `None yet.`, `No contradictions recorded yet.` Those are not open questions.
 
-## 3. Say it back
+## Say it back
 
-One screen, three parts:
+A few lines, no more:
 
-- **Where it is** — one sentence carrying the numbers: *"6 pages across 3
-  sections, 2 sources waiting, last distilled 12 July."* Numbers, not adjectives.
-- **What's next** — two or three moves, each written as something they could say
-  out loud: *"catch the wiki up"*, *"grab today's emails"*, *"what do we know
-  about Acme?"*. There are no magic words in this vault — these are examples of
-  the idea, not commands to type.
-- **What only they can do** — one line, when it applies. Sections and the domain
-  language are theirs (`CLAUDE.md`, **Ownership**); you suggest those into
-  `open-questions.md` and wait.
+- **Where it is** — one sentence with the numbers: *"6 pages, 2 sources
+  waiting, 3 open questions."* Numbers, not adjectives.
+- **What's next** — the moves the checks turned up, each written as something
+  they could say out loud: *"catch the wiki up"*, *"grab today's emails"*.
+  There are no magic words in this vault — these are examples, not commands.
 
 On the first run after onboarding, add the loop in three words so the shape is
 obvious: **capture → distill → ask**. Skip it afterwards; they know by then.
@@ -75,16 +59,12 @@ Then stop and let them answer. An offer they ignore is an answer.
 
 ## Guardrails
 
-- **Read-only** — this is the one skill that only reads. If a check turns up
-  something broken, name it and offer `wiki-lint`; don't fix it here.
-- **Their words, not the skill names** — the user knows their work, not the
-  skills. Name a skill only in parentheses, if at all.
-- **Numbers, not adjectives** — "2 sources waiting" beats "a small backlog", and
-  a count they can check keeps you honest.
-- **Don't tour an empty vault** — with no pages, describing sections that hold
-  nothing reads as busywork. Say it's empty and get to how to fill it.
-- **A fresh vault is not a drifting one** — onboarding seeds `open-questions.md`
-  with the gaps the kickoff pack left. That is the system working, so don't read
-  a pile of day-one questions as neglect.
-- **One screen** — help that needs scrolling is not help. Depth is what the
-  wiki itself is for.
+- **Read-only** — this is the one skill that only reads. If something looks
+  broken, name it and offer `wiki-lint`; don't fix it here.
+- **Their words, not the skill names** — name a skill only in parentheses, if
+  at all.
+- **Don't tour the vault** — no section-by-section walkthrough, no inventory.
+  Depth is what the wiki itself is for.
+- **A fresh vault is not a neglected one** — onboarding seeds
+  `open-questions.md` with the gaps the kickoff pack left. That is the system
+  working.
