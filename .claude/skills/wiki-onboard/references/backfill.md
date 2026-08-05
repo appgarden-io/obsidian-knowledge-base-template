@@ -18,20 +18,20 @@ Four beats: **survey → plan → sample → ingest**, then prune. Three of the 
 are **gates** — the plan, the sample, the prune — where the user decides and you
 wait. Work only up to the next gate.
 
-## 0. Ask for the connections
+## 0. Ask for the data sources
 
-The kickoff pack already told you what to ask for. `5. Data sources and systems
-of record` names the systems; `7. Current tooling` names what they work in daily.
+1. Ask the user to attach any folders that houses documents and work that would be relevant to ingest into this  knowledge base.
+2. Confirm known data sources with the user and ask them to connect them via the Claude Connector store.
+3. Ask the user to confirm when the connectors have been connected, and validate by running a simple query to check that the connectors are active. 
 
-1. **Systems of record** — name each one back to them and ask whether it is
+
+1. **Systems of record** — Confirm known data sources with the user and ask whether it is
    reachable from here. For each, discover whether a connector exists in this
    session (see `wiki-ingest`'s connector table). Where one is missing, name it
    and say how to connect it — then move on; a missing connector is a gap to
-   report, not a blocker.
+   report, not a blocker. If a user mantains they added a connector but you still can't see it, reload plugins so it appears in the session.
 2. **Directories** — ask for the folders their own work lives in. Paths, or an
    attached directory. Ask what is in each in one line.
-3. **What matters most** — ask which one they would want in the wiki first. That
-   is the batch you sample from.
 
 Record any system you could not reach in `wiki/maintenance/open-questions.md`
 under `## Questions`, so it resurfaces rather than being silently dropped.
@@ -39,8 +39,7 @@ under `## Questions`, so it resurfaces rather than being silently dropped.
 ## 1. Survey — read and report
 
 A survey reads and reports; the first thing to land in `sources/` lands at step
-3, from a batch the user has approved. Enumerate each connected source and each
-directory, and report, per source:
+3, from a batch the user has approved. Enumerate each connected source and each directory, and report, per source:
 
 - how many items, and over what date range
 - the breakdown by file type
@@ -75,7 +74,7 @@ you say go.
 ```
 
 Fill in real counts from the survey. Flag any batch over the cap with ⚠ and say
-what you would drop. Then hold the gate: the user edits, and you wait.
+what you would drop. Ask for confirmation via the AskQuestion multi-select. Then hold the gate: the user answers, and you wait.
 
 ## 3. Gate: the sample — 2 or 3, then ask
 
@@ -114,7 +113,7 @@ Write the batch as normal source notes — `wiki-ingest`'s step 4 rules apply, a
 ## 5. Gate: the prune
 
 Everything from a backfill is `#status/pending`, so nothing cites it yet — and a
-source nothing cites can be deleted (see **Provenance** in `CLAUDE.md`). That is
+source nothing cites can be deleted. That is
 the undo, and the window closes the moment a source turns `#status/distilled`.
 
 Show the user what landed and offer to drop any of it. You propose, they approve.
@@ -167,4 +166,4 @@ as sensitive, what was capped, and which connectors were missing.
 
 Then tell the user the two things that follow — **distill** turns this into wiki
 pages, and from here on new material arrives through ordinary capture, a batch at
-a time, not a backfill.
+a time, not a backfill. Encourage the user to run the distill skill in a fresh session.
