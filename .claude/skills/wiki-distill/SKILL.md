@@ -52,16 +52,6 @@ Find every note tagged `#status/pending` under `sources/`, including
 - **Preserve provenance** — every claim ends in a wikilink to this source.
 - **Meetings** (`#source/transcript`, or otherwise meeting-like) also get a notes
   page in `wiki/meetings/` — see [references/meeting-note-template.md](references/meeting-note-template.md).
-- **Kickoff packs** (`#source/kickoff`) are the interview the vault was built
-  from, so they read differently:
-  - Distill the numbered sections and the `Systems of record` table — one page
-    per system, per process, per team. Skip `Appendix — full Q&A`: it restates
-    the same facts and would double-cite them.
-  - `Their words` is already in `CONTEXT.md` (`wiki-onboard` put it there).
-    Don't re-suggest those terms.
-  - `Gaps` is not content — copy it into `open-questions.md` as follow-ups.
-  - Everything in a pack is one person's account. The citation carries that, so
-    attribute rather than asserting: `Terence owns Postilion. [[kickoff-gavin]]`.
 - **Route the leftovers**, so nothing read is dropped:
   - conflicts with an existing wiki claim → `wiki/maintenance/contradictions.md`
   - a concept worth its own page → "Suggested pages" in `open-questions.md`

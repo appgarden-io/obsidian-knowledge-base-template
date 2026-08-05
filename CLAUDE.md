@@ -36,22 +36,10 @@ Every claim in the wiki traces back to the raw material it came from. This is th
 - **A source can be deleted only while nothing cites it** — that is, while it is still `#status/pending`. Once distilled, wiki claims point at it and removing it would break provenance, so it stays forever. This is the undo for a bulk ingest that pulled in junk. Deletion is always the **user's** call: you propose, they approve, and you never delete on your own initiative.
 - **Every claim cites its source**, inline, with a wikilink at the end of the claim: `Headcount is roughly 240. [[acme-call-2026-08-01]]`. A fact you can't attribute belongs in `wiki/maintenance/open-questions.md`, not on a page.
 - **Superseded claims keep their history** — when a newer source changes a fact, the old claim moves to a dated child bullet beneath the live one.
-- **Attribution** — whoever added or fetched a source is its `submitted_by`. When that's unknowable, set the field to `unknown` and add a follow-up to `open-questions.md`.
 
 Where a skill says *preserve provenance*, it means this section.
 
-## Skills
-
-- **wiki-onboard** — set up or re-map the wiki (domain → `CONTEXT.md` → sections → source templates). Owns structure.
-- **wiki-ingest** — fetch material from the user's tools (email, meetings, Drive, Slack) into `sources/` as `#status/pending`. The active capture path.
-- **wiki-distill** — turn pending sources into wiki pages. Owns content.
-- **wiki-session-capture** — capture what a Claude session settled straight into `wiki/`, bypassing `sources/`. Owns content.
-- **wiki-lint** — health-check the wiki: fix safe bookkeeping (broken links, missing index entries), route judgment calls to the maintenance files, report.
-- **wiki-help** — read what state the vault is in and tell the user what is worth doing next. Read-only. Runs at the end of every `wiki-onboard` pass, and whenever they ask for help.
-
 If the wiki has not been set up yet (`CONTEXT.md` or source templates missing), use `.claude/skills/wiki-onboard/SKILL.md` first.
-
-**Where skills live**: every skill is a real directory at `.claude/skills/<name>/`. No symlinks anywhere in the vault — a copy, a clone, or an unzipped download all behave identically, on macOS and on Windows. Author a new skill directly under `.claude/skills/`.
 
 **The session-start nudge**: `.claude/hooks/wiki-backlog-check.sh` counts what is waiting — source notes still tagged `#status/pending` and unresolved items in `wiki/maintenance/open-questions.md` — and prints a line when either is above zero. `.claude/settings.json` runs it as a `SessionStart` hook, so its output lands in your context at the top of every session. When you see it, raise the backlog with the user early and offer to distill; never start distilling off the nudge alone. It is silent when the vault is clean.
 
@@ -104,12 +92,12 @@ Web articles arrive via the Obsidian Web Clipper into `sources/clippings/`, alre
 ## Wiki
 
 - Compile knowledge into **designed sections** (`wiki/<section>/`), not a generic bucket. Sections are a deliberate information architecture defined at onboarding — informed by `CONTEXT.md`, not a 1:1 list of every term.
-- **A section is justified three ways, or it isn't a folder.** (1) **Material** — it holds at least three real pages today, not three it might hold later. (2) **Routing** — a fact lands in it without a coin toss; if two sections could both take it, they are one section. (3) **Lookup** — someone opens it to answer a question they ask often, and calls it by that name. All three, or the thing is a page inside an existing section. Most vaults run 3–5 sections, one level deep, plus the `meetings/` and `maintenance/` the template ships. The full bar, and what to do with a candidate that misses it, is in `.claude/skills/wiki-onboard/SKILL.md`.
 - **Progressive disclosure**: `wiki/index.md` links only to first-level sections. Every directory under `wiki/` has its own `index.md`. When creating a section, create its `index.md` first and add it to the parent index.
 - **Entity-centric**: distilled facts fold into entity pages (e.g. `wiki/customers/acme-corp.md`), built from many sources over time.
 - **Index links are path-qualified** — every directory has an `index.md`, so link them as `[[meetings/index|Meetings]]`; a bare `[[index]]` is ambiguous.
 - **Meetings** also get a short notes page in `wiki/meetings/` — the one source-shaped page type.
 - Put conflicting claims in `wiki/maintenance/contradictions.md`. Put unresolved follow-ups, suggested new pages, and suggested new terms in `wiki/maintenance/open-questions.md`.
+
 
 ## Ownership
 
@@ -120,7 +108,7 @@ Web articles arrive via the Obsidian Web Clipper into `sources/clippings/`, alre
 
 The user states what they want; you pick the operation. They know their work, not the skill names — a request that means one of these fires it, however it is worded.
 
-- **Capture** — the user wants outside material in the vault ("grab today's emails", "that call just finished"); run `wiki-ingest` to fetch it from their tools and file it in `sources/` as `#status/pending`. (Web Clipper handles web articles into `sources/clippings/`.) Capture leaves the wiki untouched; the user may add a guidance note to any source before distilling.
+- **Ingest** — the user wants outside material in the vault ("grab today's emails", "that call just finished"); run `wiki-ingest` to fetch it from their tools and file it in `sources/` as `#status/pending`. (Web Clipper handles web articles into `sources/clippings/`.) Capture leaves the wiki untouched; the user may add a guidance note to any source before distilling.
 - **Distill** — the user wants what's been captured turned into wiki knowledge; run `wiki-distill` over all `#status/pending` sources.
 - **Capture the session** — the user wants what this conversation settled written into the wiki ("save what we decided", "get this in before we finish"); run `wiki-session-capture`. It writes to `wiki/` directly — a session leaves no note in `sources/`, so its claims carry no citation. This is the one operation you may also raise yourself — see **the finding nudge** below.
 - **Onboard** — the user wants to start the wiki, or its sections no longer fit how they work; run `wiki-onboard`. It drafts the wiki from `PROFILE.md` where one is present, so the user is asked only about what their kickoff interview left open.
@@ -134,3 +122,6 @@ Hold the offer to **once per session**, at a natural pause rather than mid-task,
 
 Append meaningful passes to `meta/maintenance-log.md` (`YYYY-MM-DD · who · what`).
 
+
+## Communication
+- Keep language succinct and focused. Avoid large block text and lingo.

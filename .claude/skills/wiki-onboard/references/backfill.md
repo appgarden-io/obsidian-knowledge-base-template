@@ -122,7 +122,7 @@ Show the user what landed and offer to drop any of it. You propose, they approve
 
 A backfill is read-heavy: thousands of file names, long PDFs, whole mailboxes.
 Pulling that through one context is what makes a backfill fail — you run out of
-room before the user has decided anything. Push the reading out to subagents and
+room before the user has decided anything. Push the reading out to haiku subagents and
 keep only their summaries.
 
 If your agent tool has no subagents, run the same beats inline, one at a time.
