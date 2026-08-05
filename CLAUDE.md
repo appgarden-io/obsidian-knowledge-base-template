@@ -15,7 +15,8 @@ wiki/
   maintenance/ open-questions.md · contradictions.md
   <section>/   designed sections for this domain (created by wiki-onboard)
 meta/
-  maintenance-log.md   append-only record of distill / onboard passes
+  maintenance-log.md       append-only record of distill / onboard passes
+  onboarding-progress.md   wiki-onboard's resume state — present only once onboarding has begun
 ```
 
 ## The three documents
@@ -41,7 +42,10 @@ Where a skill says *preserve provenance*, it means this section.
 
 If the wiki has not been set up yet (`CONTEXT.md` or source templates missing), use `.claude/skills/wiki-onboard/SKILL.md` first.
 
-**The session-start nudge**: `.claude/hooks/wiki-backlog-check.sh` counts what is waiting — source notes still tagged `#status/pending` and unresolved items in `wiki/maintenance/open-questions.md` — and prints a line when either is above zero. `.claude/settings.json` runs it as a `SessionStart` hook, so its output lands in your context at the top of every session. When you see it, raise the backlog with the user early and offer to distill; never start distilling off the nudge alone. It is silent when the vault is clean.
+**The session-start nudges**: `.claude/settings.json` runs two `SessionStart` hooks, so their output lands in your context at the top of every session. Each is silent when it has nothing to say, and neither is a licence to start work — raise what it reports with the user early, and act only if they ask.
+
+- `.claude/hooks/wiki-backlog-check.sh` counts what is waiting — source notes still tagged `#status/pending` and unresolved items in `wiki/maintenance/open-questions.md` — and prints a line when either is above zero. Offer to distill; never start distilling off the nudge alone.
+- `.claude/hooks/wiki-onboarding-resume.sh` reports an onboarding that stopped part-way, reading `meta/onboarding-progress.md`: the stages left and the next step the last session recorded. Offer to resume `wiki-onboard`.
 
 ## Obsidian-native markup (always)
 

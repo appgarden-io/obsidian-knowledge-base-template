@@ -12,16 +12,30 @@ through a kickoff interview captured in `PROFILE.md`.
 This skill owns **structure** — `CONTEXT.md`, the section folders, the source
 schemata and the creation of standardised Obsidian file properties.
 
-Record the completion of each stage in `meta/maintenance-log.md` so the user can pickup from where they left if starting a new session.
+## Progress log
+
+Onboarding runs long and the user can stop anywhere in it.
+`meta/onboarding-progress.md` is what makes stopping safe: the stage checklist,
+every confirmation they have given, and the one next move. A `SessionStart` hook
+reads it, so a later session opens already knowing where this one stopped.
+
+Read [references/progress-log.md](references/progress-log.md) before stage 0 and
+keep the file current for the whole run — its shape, when to write, and how to
+resume from it are all there. Stages below say only *when* to tick.
 
 ## Flow
 
 ### 0. Introduce the session
 
-Open a fresh onboarding with the script in
-[references/introduction.md](references/introduction.md), copied word for word,
-and wait for the user's go-ahead. On a resume — the log already shows completed
-stages — skip the script and pick up from where the log leaves off.
+**Fresh run** — output the script in
+[references/introduction.md](references/introduction.md) word for word and wait
+for the user's go-ahead. On the go-ahead, create `meta/onboarding-progress.md`,
+tick stage 0, and open the grill.
+
+**Resume** — `meta/onboarding-progress.md` exists with `status: in-progress`.
+Skip the script, say in one line where they stopped and what is next, then pick
+up per *Resuming from it* in
+[references/progress-log.md](references/progress-log.md).
 
 ### 1. Understand the domain → `CONTEXT.md`
 
@@ -36,7 +50,8 @@ Start by building out `CONTEXT.md`.
   user genuinely doesn't know or doesn't care, drop it.
 - **Done when** every term from `Their words` appears there, in the user's own
 wording rather than a cleaner phrasing of yours, and no question about the pack
-remains unasked. Onboarding ends with zero open questions.
+remains unasked. Onboarding ends with zero open questions. Tick stage 1, and note
+any term they corrected you on.
 
 ### 2. Create the directory structure → `wiki/<section>/`
 
@@ -44,8 +59,13 @@ Suggest a folder structure for the vault using ascii tree. Explain what each
 section will house. Aim for 4-6 main, root level folders. Iterate until the user
 confirms they are satisfied with the structure.
 
-The moment they confirm, name the next step so there is no ambiguity about
-where this is going. Say this word for word:
+**The moment they confirm, write the agreed tree into `## Confirmed with the
+user`** — before anything else. This is the likeliest place in the whole run for
+a session to end: the token warning below sends some users off to change their
+model, and the design they just spent the last stretch settling must survive that.
+
+Then name the next step so there is no ambiguity about where this is going. Say
+this word for word:
 
 > Now we are going to bootstrap your knowledge base with relevant data to get
 > you started. This may use a large amount of tokens so make sure your model
@@ -62,7 +82,8 @@ On the go-ahead, build what they confirmed:
    (`[[customers/index|Customers]]`).
 3. In the index.md, outline the available Obsidian properties that should be used when persiting md files to the section. Refer to the `obsidian-markdown` skill.
 
-**Done when** every section has an `index.md`, each linked from `wiki/index.md`.
+**Done when** every section has an `index.md`, each linked from `wiki/index.md`,
+and stage 2 is ticked.
 
 ### 3. Distill the kickoff pack
 
@@ -80,7 +101,8 @@ so the user sees real pages appear before any external data is touched.
    should raise no new questions.
 
 **Done when** `PROFILE.md` is gone from the root, the kickoff note is
-`#status/distilled`, and its facts sit on wiki pages with citations.
+`#status/distilled`, its facts sit on wiki pages with citations, and stage 3 is
+ticked.
 
 ### 4. Bootstrap external data
 
@@ -88,14 +110,16 @@ The wiki now holds what the pack knew; this stage brings in what their systems
 know.
 
 1. **Settle the source types** — ask the user to confirm which data sources they
-   plan to ingest information from. Write a `sources/_template-<type>.md` per
+   plan to ingest information from. Record the list in `## Confirmed with the
+   user` as they name it, before you start writing templates. Write a
+   `sources/_template-<type>.md` per
    type with `source/<type>` filled in and that type's extras added — the extras
    being only what the common base doesn't already carry (a source's own date is
    always `source_date`). Record the per-type schema in the table in
    `CLAUDE.md`, so `wiki-ingest` and `wiki-distill` can rely on it.
 2. **Backfill** — run [references/backfill.md](references/backfill.md) directly
 **Done when** every data source type named has both a template file and a row in
-the table, and the backfill has run.
+the table, the backfill has run, and stage 4 is ticked.
 
 ### 5. Distill the backfill
 
@@ -104,8 +128,9 @@ What the backfill landed is raw material; this turns it into wiki pages. Run
 batch is large, distill a first slice so the user sees pages appear before
 deciding on the rest.
 
-**Done when** the backfilled sources are distilled, or the user has stopped
-after a slice they're happy with.
+**Done when** the backfilled sources are distilled — or the user has stopped
+after a slice they're happy with — and stage 5 is ticked. Anything left pending
+needs no note here; the backlog hook counts it at every session start.
 
 ### 6. Hand over
 
@@ -125,7 +150,10 @@ The close is an **offer to act, not a goodbye**:
 - No reopening structure — stage 2 already gated on it. Don't close with
   "anything you'd change?"; if a term is wrong they'll say so unprompted.
 
-**Done when** the user has either taken the next move or declined it.
+**Done when** the user has either taken the next move or declined it, the
+progress log is closed out per
+[references/progress-log.md](references/progress-log.md), and the pass is
+appended to `meta/maintenance-log.md` (`YYYY-MM-DD · who · what`).
 
 ## Guardrails
 
