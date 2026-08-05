@@ -2,7 +2,7 @@
 name: wiki-ingest
 description: >
   Ingest outside material into an Obsidian company wiki as `#status/pending`
-  source notes. Use when the user wants something from their tools brought into
+  source notes. Use when the user wants something from their tools or directories brought into
   the vault — a morning's email, the meeting that just ended, a doc someone
   shared, a Slack thread worth keeping — or hands you the content directly,
   whether or not they name a skill or a folder. Lands sources; distilling them
@@ -48,8 +48,7 @@ notes.
 ### 1. Read the conventions
 
 The vault `CLAUDE.md` **Sources** section holds the canonical header and the
-per-type property schema — read it there rather than working from memory, since
-`wiki-onboard` extends that table per team. Read `CONTEXT.md` when you need the
+per-type property schema — read it there rather than working from memory. Read `CONTEXT.md` when you need the
 domain's terms to name things well.
 
 ### 2. Interpret the request

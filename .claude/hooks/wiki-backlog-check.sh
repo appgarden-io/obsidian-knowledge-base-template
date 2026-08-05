@@ -41,5 +41,5 @@ if [ "$questions" -gt 0 ]; then
 fi
 
 echo "[wiki backlog] The vault has $parts."
-echo "Mention this to the user early in your first reply and offer to run wiki-distill" \
+echo "If larger than 10 items, mention this to the user early in your first reply and offer to run wiki-distill" \
      "(and to work through the open questions). Do not start distilling unless they ask."
