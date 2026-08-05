@@ -22,19 +22,14 @@ updated: 2026-06-08                 # date of the newest source folded in
 ## Body
 
 ```md
-# Acme Corp
+# <Entity name>
 
-Mid-market logistics company; customer since 2025. One or two sentences, in the
-domain's words, so a reader knows what this is before scrolling.
+One or two sentences, in the domain's words, so a reader knows what this is
+before scrolling.
 
-## Needs
+## <Facet the domain tracks>
 
-- Wants same-day quote turnaround on freight over 2t. [[acme-call-2026-06-08]]
-- Currently on a 30-day billing cycle. [[acme-contract-2025-11-02]]
-
-## People
-
-- [[bob-mendes]] — operations lead, the day-to-day contact. [[acme-call-2026-06-08]]
+- One claim, one line. [[source-note]]
 ```
 
 Section headings are the entity's **facets** — pick what the domain actually
