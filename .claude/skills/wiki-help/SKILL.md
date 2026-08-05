@@ -48,9 +48,11 @@ A few lines, no more:
 
 - **Where it is** — one sentence with the numbers: *"6 pages, 2 sources
   waiting, 3 open questions."* Numbers, not adjectives.
-- **What's next** — the moves the checks turned up, each written as something
-  they could say out loud: *"catch the wiki up"*, *"grab today's emails"*.
-  There are no magic words in this vault — these are examples, not commands.
+- **What's next** — the moves the checks turned up, each offered as something
+  you can do **right now, in this session**: *"want me to catch the wiki up?"*,
+  *"shall I grab today's emails?"*. Never defer a move to a fresh session or
+  teach a phrase to say later — there are no magic words in this vault, and
+  nothing here needs a restart.
 
 On the first run after onboarding, add the loop in three words so the shape is
 obvious: **capture → distill → ask**. Skip it afterwards; they know by then.
@@ -65,6 +67,8 @@ Then stop and let them answer. An offer they ignore is an answer.
   at all.
 - **Don't tour the vault** — no section-by-section walkthrough, no inventory.
   Depth is what the wiki itself is for.
-- **A fresh vault is not a neglected one** — onboarding seeds
-  `open-questions.md` with the gaps the kickoff pack left. That is the system
-  working.
+- **A fresh vault is not a neglected one** — right after onboarding the vault
+  is empty of pages and clean of open questions; that is the system working.
+  Open questions right after onboarding are a miss — the grill should have
+  asked them — so offer to resolve them now rather than presenting them as
+  normal.

@@ -28,12 +28,30 @@ stages — skip the script and pick up from where the log leaves off.
 Start by building out `CONTEXT.md`. 
 - Look at `PROFILE.md` and begin grilling the user on terminology and concepts that are not clear. Use the AskQuestion tool if relevant, avoid Obsidian lingo, knowledge base lingo or advanced Claude lingo. Once you beleive you have a grasp of a concept, explain it back to the user and ask if you understand it correctly. If the answer is yes, persist to `CONTEXT.md`. If the answer is no, ask for missing information.
 - Use format from [../grill-with-docs/CONTEXT-FORMAT.md](../grill-with-docs/CONTEXT-FORMAT.md).
+- **Every gap the pack leaves is asked here, in the grill** — an unclear term, a
+  missing owner, an ambiguous spelling, a process you can't picture. The user is
+  sitting right there; ask them now. Never file an interview gap into
+  `wiki/maintenance/open-questions.md` — that file is for what *distill* can't
+  resolve later, not for questions you could have asked during setup. If the
+  user genuinely doesn't know or doesn't care, drop it.
 - **Done when** every term from `Their words` appears there, in the user's own
-wording rather than a cleaner phrasing of yours.
+wording rather than a cleaner phrasing of yours, and no question about the pack
+remains unasked. Onboarding ends with zero open questions.
 
 ### 2. Gate: propose, then grill what's open
 
 Next, suggest a folder structure for the vault using ascii tree. Explain what each section will house. Aim for 4-6 main, root level folders. Move to next section once user confirms they are satisfied with structure. Iterate until they are satsfied.
+
+The moment they confirm, name the next step so there is no ambiguity about
+where this is going. Say this word for word:
+
+> Now we are going to bootstrap your knowledge base with relevant data to get
+> you started. This may use a large amount of tokens so make sure your model
+> is set to Sonnet High.
+
+Then wait for their go-ahead — the model switch is theirs to make, and
+everything from here on (building sections, templates, the backfill) is the
+token-heavy part.
 
 ### 3. Build the sections → `wiki/<section>/`
 
@@ -59,9 +77,13 @@ the table.
 
 ### 5. Connect their systems and backfill
 
-The knowledge base is now shaped but empty. Offer to fill it. Encourage the user to start a new session and when they do, to mention 'I want to backfill the knowledge base'. See [references/backfill.md](references/backfill.md)
+The knowledge base is now shaped but empty. Offer to fill it **now, in this
+session** — run [references/backfill.md](references/backfill.md) directly.
+Never tell the user to start a new session or teach them a phrase to say later;
+they are here, and the work runs here.
 
-The user can decline or come back later. Say so, and note it in the log.
+The user can decline or come back later. If they decline, say the backfill is
+waiting whenever they ask for it, and note it in the log.
 
 ### 6. Hand over
 
@@ -71,7 +93,16 @@ used, so end on where they are and the one or two things worth doing next —
 not on a summary of what you built. `wiki-help` reads the state you just
 created, so it says the right thing whether or not they took the backfill.
 
-**Done when** the user knows their next move.
+The close is an **offer to act, not a goodbye**:
+
+- The kickoff pack is sitting in `sources/` as `#status/pending` — the first
+  move is almost always *offer to distill it right now*. If they skipped the
+  backfill, offer that second. Both run here, in this session.
+- No fresh-session advice, ever — nothing about this vault needs a restart.
+- No reopening structure — stage 2 already gated on it. Don't close with
+  "anything you'd change?"; if a term is wrong they'll say so unprompted.
+
+**Done when** the user has either taken the next move or declined it.
 
 ## Guardrails
 

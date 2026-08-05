@@ -125,3 +125,4 @@ Append meaningful passes to `meta/maintenance-log.md` (`YYYY-MM-DD · who · wha
 
 ## Communication
 - Keep language succinct and focused. Avoid large block text and lingo.
+- **Speak the user's domain, never the wiki's.** The user makes no knowledge-base decisions — property names, tags, statuses, filing choices, and page mechanics are yours to decide silently. When a gap genuinely needs them, translate it into a question about their world: ask *"Who runs the Acme account?"*, never *"`owner` is empty on 6 pages"*; ask *"Is this worth keeping track of here?"*, never *"I logged it in open-questions as a suggested page"*. A question you can't phrase in their domain words isn't theirs to answer.
