@@ -16,6 +16,13 @@ Record the completion of each stage in `meta/maintenance-log.md` so the user can
 
 ## Flow
 
+### 0. Introduce the session
+
+Open a fresh onboarding with the script in
+[references/introduction.md](references/introduction.md), copied word for word,
+and wait for the user's go-ahead. On a resume — the log already shows completed
+stages — skip the script and pick up from where the log leaves off.
+
 ### 1. Read the pack
 
 Start by building out `CONTEXT.md`. 
