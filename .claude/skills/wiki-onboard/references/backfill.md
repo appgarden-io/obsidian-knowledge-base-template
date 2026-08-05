@@ -165,7 +165,8 @@ Report: what was ingested per batch, what was filtered and why, what was skipped
 as sensitive, what was capped, and which connectors were missing.
 
 Then tell the user the two things that follow — **distill** turns this into wiki
-pages, and from here on new material arrives through ordinary capture, a batch at
-a time, not a backfill. Offer to start distilling right now, in this session; if
-the batch is large, offer a first slice so they see a page appear before deciding
-on the rest.
+pages (when this ran inside `wiki-onboard`, its stage 5 does that next), and from
+here on new material arrives through ordinary capture, a batch at a time, not a
+backfill. Start distilling right now, in this session;
+if the batch is large, offer a first slice so they see a page appear before
+deciding on the rest.
