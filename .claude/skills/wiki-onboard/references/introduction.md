@@ -5,32 +5,30 @@ message of the session, then wait for the user's answer before starting step 1.
 
 ---
 
-Welcome. 
+Welcome.
 
-Claude is a powerful tool but it is only as powerful as the context it as access to. 
+I'm a powerful tool, but I'm only as good as the context I can reach.
 
-To have Claude as a true sidekick and thinking partner that will make you many times more effecient, it is worth putting in the time to set up your workstation to make collaboration with Claude seamless.
+To make me a true sidekick and thinking partner — one that makes you many times more efficient — it's worth putting in the time to set up your workstation so working with me is seamless.
 
-Think of Claude as a squirell and context as achorns - it will run after context like crazy, following crumbs, doing what it can to "fill out" any concept or idea to give you an answer. This is great when those achorns are well structured, interlinked and relevant peices of information. It is not so great when Claude has to make things up to reach conclusions due to lack context, or draw upon scraps from bad context. 
+Think of me as a squirrel and context as acorns: I chase context relentlessly, following crumbs, doing whatever I can to fill out an idea and give you an answer. That's great when the acorns are well-structured, interlinked, relevant pieces of information. It's not so great when I have to guess my way to a conclusion because context is missing, or piece it together from scraps of bad context.
 
-For most of us, we have folders lying around our computer, data siloed in 3rd party tools (transcripts in Zoom, docs in Drive, emails in Outlook etc.) and years of experience, best practice and process locked up in our heads.
+For most of us, that's exactly the situation: folders lying around the computer, data siloed in third-party tools — transcripts in Zoom, docs in Drive, emails in Outlook — and years of experience, best practice, and process locked up in our heads.
 
-In April 2026, the famed AI researched, Andrej Karpathy, wrote a viral [[X post pioneering an early version of an LLM Knowledge Base](https://x.com/karpathy/status/2039805659525644595?s=20)] as a way to give structure to the way we do knowledge work with Claude. 
+In April 2026, the famed AI researcher Andrej Karpathy wrote a viral [post pioneering an early version of an LLM knowledge base](https://x.com/karpathy/status/2039805659525644595) — a way to give structure to how we do knowledge work with AI.
 
-The approach is charectised by creating a directory mostly made up of text files (markdown) that are interlinked using the special Obsidian format. By pointing Claude at a data source - for example, a report, a new idea developed in a Claude session, an email or meeting trascipt - it will extract the raw data and "dump" it into the sources directory (an "inbox" of sorts). Upon your instrcution or on a schedule, Claude can then distill this raw data into refined, well structured references in wiki directory that link back to the raw material. The result is a well structured library of context that any future Claude session can draw from. 
+Here's the approach: a folder of ordinary text files that link to each other. Point me at anything — a report, an idea we develop in a session, an email, a meeting transcript — and the raw material lands in a folder called **sources**, an inbox of sorts. On your word, or on a schedule, I distill that raw material into clean, well-structured pages in the **wiki** folder that always point back to the original. The result is a well-organised library of context that any future session with me can draw on.
 
-Unlike knowledgbases of the past, curation, ingestion and maintenance is not driven by you, rather, they are driven by Claude. 
+Unlike the knowledge bases of the past, the curation, data ingestion, and maintenance aren't driven by you — they're driven by me. You never edit anything in here by hand. Whatever you want done — adding material, changing a page, finding an answer — you ask me in your own words and I do the work.
 
-Once you set structure, guardrails and after an initial period of hand holding Claude while operating in this space, you will start to benefit by having all your data, thoughts and outputs in a single, well organised place. A second brain if youd like. 
+Set the structure and guardrails today, hold my hand for a little while as I learn to operate in this space, and the payoff compounds: all your data, thoughts, and outputs in a single, well-organised place. A second brain, if you like. You'll find that most of your knowledge work going forward starts here — slinging reports, emails, posts, and plans with very little holding you back.
 
-You will find that the majority of your knowledge work happens in this directory. You will start to sling reports, emails, posts, plans and the like with very little holding you back.
-
-So if you're sold on the concept, lets get started by creating the structure of this knowledge base - you wont look back.
+So if you're sold, today's job is the structure — and it deserves your focus, so set aside up to an hour. I'll learn the words your team uses, propose a shape for the knowledge base, set up where your material will come from and let an army of agents bootstrap this space with the data needed to get going.
 
 A few ground rules:
 
-- Your own words win over my rephrasing.
 - Nothing today is permanent.
 - We can stop any time and pick up where we left off.
+- All data lives as files on your computer. Nothing in this directory is publicly available.
 
 Ready to start?
